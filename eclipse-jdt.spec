@@ -5,7 +5,7 @@ Release:	0.1
 License:	EPL v1.0
 Group:		Development/Languages/Java
 Source0:	http://archive.eclipse.org/eclipse/downloads/drops/R-%{version}-200601181600/eclipse-JDT-%{version}.zip
-# Source0-md5:	f2c8066151de14c5ccdf420266ce9f39
+# Source0-md5:	5425b78525b6f0b01416b78cdef4d50e
 URL:		http://www.eclipse.org/jdt/
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
