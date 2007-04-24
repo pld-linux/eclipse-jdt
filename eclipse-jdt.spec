@@ -1,4 +1,5 @@
 Summary:	Eclipse Java Development Tools (JDT)
+Summary(pl.UTF-8):	Narzędzia programistyczne JDT (Java Development Tools) dla Eclipse
 Name:		eclipse-jdt
 Version:	3.1.2
 Release:	0.1
@@ -17,6 +18,15 @@ plug-ins. It adds a Java project nature and Java perspective to the
 Eclipse Workbench as well as a number of views, editors, wizards,
 builders, and code merging and refactoring tools. The JDT project
 allows Eclipse to be a development environment for itself.
+
+%description -l pl.UTF-8
+Projekt JDT udostępnia wtyczki narzędziowe implementujące IDE dla Javy
+wspierające tworzenie dowolnych aplikacji w Javie, włącznie z
+wtyczkami dla Eclipse. Dodają one rodzaj projektu Java i perspektywę
+Java do Eclipse Workbench, a także wiele widoków, edytorów,
+asystentów oraz narzędzi do budowania, łączenia i refaktoryzacji
+kodu. Projekt JDT pozwala Eclipse być środowiskiem programistycznym
+dla samego siebie.
 
 %prep
 %setup -q -n eclipse
