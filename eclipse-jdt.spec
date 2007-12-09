@@ -1,3 +1,4 @@
+%include	/usr/lib/rpm/macros.java
 Summary:	Eclipse Java Development Tools (JDT)
 Summary(pl.UTF-8):	Narzędzia programistyczne JDT (Java Development Tools) dla Eclipse
 Name:		eclipse-jdt
@@ -8,6 +9,10 @@ Group:		Development/Languages/Java
 Source0:	http://archive.eclipse.org/eclipse/downloads/drops/R-%{version}-200601181600/eclipse-JDT-%{version}.zip
 # Source0-md5:	5425b78525b6f0b01416b78cdef4d50e
 URL:		http://www.eclipse.org/jdt/
+BuildRequires:	jpackage-utils
+BuildRequires:	rpm-javaprov
+BuildRequires:	rpmbuild(macros) >= 1.300
+Requires:	jpackage-utils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
