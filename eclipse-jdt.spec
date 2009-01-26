@@ -3,7 +3,7 @@ Summary:	Eclipse Java Development Tools (JDT)
 Summary(pl.UTF-8):	Narzędzia programistyczne JDT (Java Development Tools) dla Eclipse
 Name:		eclipse-jdt
 Version:	3.1.2
-Release:	0.1
+Release:	1
 License:	EPL v1.0
 Group:		Development/Languages/Java
 Source0:	http://archive.eclipse.org/eclipse/downloads/drops/R-%{version}-200601181600/eclipse-JDT-%{version}.zip
