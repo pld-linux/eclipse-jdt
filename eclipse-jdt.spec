@@ -1,13 +1,17 @@
+# TODO:
+# - documentation
+# - test if it works
+# - what about the rest of jar files?
 %include	/usr/lib/rpm/macros.java
 Summary:	Eclipse Java Development Tools (JDT)
 Summary(pl.UTF-8):	Narzędzia programistyczne JDT (Java Development Tools) dla Eclipse
 Name:		eclipse-jdt
-Version:	3.1.2
-Release:	1
+Version:	3.5
+Release:	0.1
 License:	EPL v1.0
 Group:		Development/Languages/Java
-Source0:	http://archive.eclipse.org/eclipse/downloads/drops/R-%{version}-200601181600/eclipse-JDT-%{version}.zip
-# Source0-md5:	5425b78525b6f0b01416b78cdef4d50e
+Source0:	http://download.eclipse.org/eclipse/downloads/drops/R-%{version}-200906111540/eclipse-JDT-SDK-%{version}.zip
+# Source0-md5:	4c99986911c9ee894b3818c87719b39f
 URL:		http://www.eclipse.org/jdt/
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
@@ -39,7 +43,7 @@ dla samego siebie.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
-cp -a plugins/org.eclipse.jdt.core_%{version}.jar $RPM_BUILD_ROOT%{_javadir}/org.eclipse.jdt.core-%{version}.jar
+cp -a plugins/org.eclipse.jdt.core_3.5.0.v_963.jar $RPM_BUILD_ROOT%{_javadir}/org.eclipse.jdt.core-%{version}.jar
 ln -s org.eclipse.jdt.core-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/org.eclipse.jdt.core.jar
 
 %clean
@@ -47,5 +51,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc epl-v10.html notice.html
+#%doc epl-v10.html notice.html
 %{_javadir}/*.jar
