@@ -1,3 +1,5 @@
+# TODO:
+# - rename to java-eclipse-jdt (?)
 
 %include	/usr/lib/rpm/macros.java
 Summary:	Eclipse Java Development Tools (JDT) libraries
