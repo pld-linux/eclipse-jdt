@@ -1,13 +1,10 @@
-# TODO:
-# - documentation
-# - test if it works
-# - what about the rest of jar files?
+
 %include	/usr/lib/rpm/macros.java
 Summary:	Eclipse Java Development Tools (JDT)
 Summary(pl.UTF-8):	Narzędzia programistyczne JDT (Java Development Tools) dla Eclipse
 Name:		eclipse-jdt
 Version:	3.5
-Release:	0.1
+Release:	1
 License:	EPL v1.0
 Group:		Development/Languages/Java
 Source0:	http://download.eclipse.org/eclipse/downloads/drops/R-%{version}-200906111540/eclipse-JDT-SDK-%{version}.zip
