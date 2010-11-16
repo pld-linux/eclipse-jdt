@@ -1,12 +1,12 @@
 # TODO:
-# - rename to java-eclipse-jdt (?)
-
+# - base package sould contain actual jdt, but update clipse.spec first not to
+#   bundle itself jdt
 %include	/usr/lib/rpm/macros.java
 Summary:	Eclipse Java Development Tools (JDT) libraries
 Summary(pl.UTF-8):	Biblioteki Eclipse JDT
 Name:		eclipse-jdt
 Version:	3.5
-Release:	1
+Release:	2
 License:	EPL v1.0
 Group:		Libraries/Java
 Source0:	http://download.eclipse.org/eclipse/downloads/drops/R-%{version}-200906111540/eclipse-JDT-SDK-%{version}.zip
@@ -16,37 +16,54 @@ BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 BuildRequires:	unzip
-Requires:	jpackage-utils
+Requires:	java-eclipse-jdt = %{version}-%{release}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This package contains library needed to build and run some java applications
-developed with Eclipse IDE (most notably tomcat).
+Empty package for upgrades.
 
-If you are looking for JDT plugin for Eclipse, it is included in main eclipse
-package.
+If you are looking for JDT plugin for Eclipse, it is included in main
+eclipse package.
 
-%description -l pl.UTF-8
+%package -n java-eclipse-jdt
+Summary:	Eclipse Java Development Tools (JDT) libraries
+Summary(pl.UTF-8):	Biblioteki Eclipse JDT
+Group:		Libraries/Java
+Requires:	jpackage-utils
+
+%description -n java-eclipse-jdt
+This package contains library needed to build and run some java
+applications developed with Eclipse IDE (most notably tomcat).
+
+If you are looking for JDT plugin for Eclipse, it is included in main
+eclipse package.
+
+%description -n java-eclipse-jdt -l pl.UTF-8
 Ten pakiet zawiera bibliotekę potrzebną do zbudowania i uruchomienia
-niektórych aplikacji pewnych aplikacji napisanych w javie przy użyciu Eclipse
-IDE (przykładowo tomcata).
+niektórych aplikacji pewnych aplikacji napisanych w javie przy użyciu
+Eclipse IDE (przykładowo tomcata).
 
-Jeżeli szukasz pluginu JDT dla środowiska programistycznego IDE, to jest on
-zawarty w głównym pakiecie eclipse.
+Jeżeli szukasz pluginu JDT dla środowiska programistycznego IDE, to
+jest on zawarty w głównym pakiecie eclipse.
 
 %prep
-%setup -q -n eclipse
+%setup -qc
+
+mv eclipse/* .
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadir}
-cp -a plugins/org.eclipse.jdt.core_3.5.0.v_963.jar $RPM_BUILD_ROOT%{_javadir}/org.eclipse.jdt.core-%{version}.jar
+cp -a plugins/org.eclipse.jdt.core_*.jar $RPM_BUILD_ROOT%{_javadir}/org.eclipse.jdt.core-%{version}.jar
 ln -s org.eclipse.jdt.core-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/org.eclipse.jdt.core.jar
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
+%defattr(644,root,root,755)
+
+%files -n java-eclipse-jdt
 %defattr(644,root,root,755)
 %{_javadir}/*.jar
