@@ -5,12 +5,12 @@
 Summary:	Eclipse Java Development Tools (JDT) libraries
 Summary(pl.UTF-8):	Biblioteki Eclipse JDT
 Name:		eclipse-jdt
-Version:	4.2.2
+Version:	4.3.1
 Release:	1
 License:	EPL v1.0
 Group:		Libraries/Java
-Source0:	http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/eclipse/downloads/drops4/R-4.2.2-201302041200/org.eclipse.jdt.source-4.2.2.zip
-# Source0-md5:	8c65fbcade9e6908f7fda1576aba7c77
+Source0:	http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/eclipse/downloads/drops4/R-4.3.1-201309111000/org.eclipse.jdt.source-%{version}.zip
+# Source0-md5:	d699ba8f9bcf7e3e7b73bd8261fd385e
 URL:		http://www.eclipse.org/jdt/
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
