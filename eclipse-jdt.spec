@@ -1,16 +1,18 @@
 # TODO:
 # - base package sould contain actual jdt, but update clipse.spec first not to
 #   bundle itself jdt
+# - build the jar, not use prebuilt
 %include	/usr/lib/rpm/macros.java
 Summary:	Eclipse Java Development Tools (JDT) libraries
 Summary(pl.UTF-8):	Biblioteki Eclipse JDT
 Name:		eclipse-jdt
-Version:	4.3.1
+Version:	4.3.2
 Release:	1
 License:	EPL v1.0
 Group:		Libraries/Java
-Source0:	http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/eclipse/downloads/drops4/R-4.3.1-201309111000/org.eclipse.jdt.source-%{version}.zip
-# Source0-md5:	d699ba8f9bcf7e3e7b73bd8261fd385e
+# http://archive.eclipse.org/eclipse/downloads/
+Source0:	http://archive.eclipse.org/eclipse/downloads/drops4/R-%{version}-201402211700/org.eclipse.jdt.source-%{version}.zip
+# Source0-md5:	ed994faec40def0a150b27033c89c9b2
 URL:		http://www.eclipse.org/jdt/
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
