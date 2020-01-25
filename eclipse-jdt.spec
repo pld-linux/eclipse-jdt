@@ -2,7 +2,6 @@
 # - base package sould contain actual jdt, but update clipse.spec first not to
 #   bundle itself jdt
 # - build the jar, not use prebuilt
-%include	/usr/lib/rpm/macros.java
 Summary:	Eclipse Java Development Tools (JDT) libraries
 Summary(pl.UTF-8):	Biblioteki Eclipse JDT
 Name:		eclipse-jdt
