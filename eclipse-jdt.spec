@@ -1,22 +1,23 @@
 # TODO:
-# - base package sould contain actual jdt, but update clipse.spec first not to
+# - base package should contain actual jdt, but update eclipse.spec first not to
 #   bundle itself jdt
-# - build the jar, not use prebuilt
-Summary:	Eclipse Java Development Tools (JDT) libraries
-Summary(pl.UTF-8):	Biblioteki Eclipse JDT
+%define		drop	R-%{version}-202512010920
+Summary:	Eclipse Compiler for Java (ECJ)
+Summary(pl.UTF-8):	Kompilator Eclipse dla Javy (ECJ)
 Name:		eclipse-jdt
-Version:	4.4.2
+Version:	4.38
 Release:	1
-License:	EPL v1.0
+License:	EPL v2.0
 Group:		Libraries/Java
-# http://archive.eclipse.org/eclipse/downloads/
-Source0:	http://archive.eclipse.org/eclipse/downloads/drops4/R-%{version}-201502041700/org.eclipse.jdt.source-%{version}.zip
-# Source0-md5:	f32680fd5130e677366c249811671db9
-URL:		http://www.eclipse.org/jdt/
+Source0:	https://archive.eclipse.org/eclipse/downloads/drops4/%{drop}/ecjsrc-%{version}.jar
+# Source0-md5:	29df435c80c010694012de442474ad88
+Source1:	ecj-build.xml
+URL:		https://www.eclipse.org/jdt/
+BuildRequires:	ant
+BuildRequires:	jdk >= 23
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
-BuildRequires:	unzip
 Requires:	java-eclipse-jdt = %{version}-%{release}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -28,8 +29,8 @@ If you are looking for JDT plugin for Eclipse, it is included in main
 eclipse package.
 
 %package -n java-eclipse-jdt
-Summary:	Eclipse Java Development Tools (JDT) libraries
-Summary(pl.UTF-8):	Biblioteki Eclipse JDT
+Summary:	Eclipse Compiler for Java (ECJ) libraries
+Summary(pl.UTF-8):	Biblioteki kompilatora Eclipse dla Javy (ECJ)
 Group:		Libraries/Java
 Requires:	jpackage-utils
 
@@ -49,13 +50,17 @@ Jeżeli szukasz pluginu JDT dla środowiska programistycznego IDE, to
 jest on zawarty w głównym pakiecie eclipse.
 
 %prep
-%setup -qc
+%setup -qc -n ecj-%{version}
+cp -p %{SOURCE1} build.xml
+
+%build
+%ant
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_javadir}
-cp -a plugins/org.eclipse.jdt.core_*.jar $RPM_BUILD_ROOT%{_javadir}/org.eclipse.jdt.core-%{version}.jar
+cp -a ecj.jar $RPM_BUILD_ROOT%{_javadir}/org.eclipse.jdt.core-%{version}.jar
 ln -s org.eclipse.jdt.core-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/org.eclipse.jdt.core.jar
 
 %clean
