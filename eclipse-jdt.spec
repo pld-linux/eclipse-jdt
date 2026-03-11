@@ -2,14 +2,14 @@
 # - base package should contain actual jdt, but update eclipse.spec first not to
 #   bundle itself jdt
 
-%{?use_default_jdk:%use_default_jdk 25}
+%{?use_default_jdk:%use_default_jdk 23}
 
 %define		drop	R-%{version}-202512010920
 Summary:	Eclipse Compiler for Java (ECJ)
 Summary(pl.UTF-8):	Kompilator Eclipse dla Javy (ECJ)
 Name:		eclipse-jdt
 Version:	4.38
-Release:	2
+Release:	1
 License:	EPL v2.0
 Group:		Libraries/Java
 Source0:	https://archive.eclipse.org/eclipse/downloads/drops4/%{drop}/ecjsrc-%{version}.jar
