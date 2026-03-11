@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ecj" default="build" basedir=".">
+
+	<property name="output" value="bin" />
+	<property name="jar_file" value="ecj.jar" />
+
+	<target name="build">
+		<delete file="${basedir}/${jar_file}" failonerror="no" />
+		<delete dir="${output}" failonerror="no" />
+		<mkdir dir="${output}" />
+
+		<javac srcdir="${basedir}" destdir="${output}"
+				debuglevel="lines,source"
+				debug="true"
+				release="23">
+			<compilerarg line="-Xlint:none"/>
+		</javac>
+
+		<jar destfile="${basedir}/${jar_file}">
+			<fileset dir="${output}" />
+			<fileset dir="${basedir}">
+				<include name="about.html"/>
+				<include name="**/*.rsc"/>
+				<include name="**/readableNames.props"/>
+				<include name="META-INF/**"/>
+				<include name="**/*.properties"/>
+				<exclude name="META-INF/eclipse.inf"/>
+				<exclude name="META-INF/ECLIPSE_.SF"/>
+				<exclude name="META-INF/ECLIPSE_.RSA"/>
+			</fileset>
+		</jar>
+		<delete dir="${output}" />
+	</target>
+</project>
