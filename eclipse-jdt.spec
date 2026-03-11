@@ -1,6 +1,9 @@
 # TODO:
 # - base package should contain actual jdt, but update eclipse.spec first not to
 #   bundle itself jdt
+
+%{?use_default_jdk:%use_default_jdk 23}
+
 %define		drop	R-%{version}-202512010920
 Summary:	Eclipse Compiler for Java (ECJ)
 Summary(pl.UTF-8):	Kompilator Eclipse dla Javy (ECJ)
@@ -14,10 +17,10 @@ Source0:	https://archive.eclipse.org/eclipse/downloads/drops4/%{drop}/ecjsrc-%{v
 Source1:	ecj-build.xml
 URL:		https://www.eclipse.org/jdt/
 BuildRequires:	ant
-BuildRequires:	jdk >= 23
+%buildrequires_jdk
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
-BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	rpmbuild(macros) >= 2.021
 Requires:	java-eclipse-jdt = %{version}-%{release}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
