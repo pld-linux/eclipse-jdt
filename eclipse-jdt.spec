@@ -2,7 +2,7 @@
 # - base package should contain actual jdt, but update eclipse.spec first not to
 #   bundle itself jdt
 
-%{?use_default_jdk:%use_default_jdk 8}
+%{?use_default_jdk:%use_default_jdk 11}
 
 %define		orgname		eclipse-jdt
 
@@ -13,7 +13,7 @@ Summary:	Eclipse Compiler for Java (ECJ) - JDK 8 compatible
 Summary(pl.UTF-8):	Kompilator Eclipse dla Javy (ECJ) - kompatybilny z JDK 8
 Name:		%{orgname}8
 Version:	4.20
-Release:	1
+Release:	2
 License:	EPL v2.0
 Group:		Libraries/Java
 Source0:	https://archive.eclipse.org/eclipse/downloads/drops4/%{drop}/ecjsrc-%{version}.jar
