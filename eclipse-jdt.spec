@@ -4,16 +4,16 @@
 
 %{?use_default_jdk:%use_default_jdk 23}
 
-%define		drop	R-%{version}-202512010920
+%define		drop	R-%{version}-202608281142
 Summary:	Eclipse Compiler for Java (ECJ)
 Summary(pl.UTF-8):	Kompilator Eclipse dla Javy (ECJ)
 Name:		eclipse-jdt
-Version:	4.38
+Version:	4.41
 Release:	1
 License:	EPL v2.0
 Group:		Libraries/Java
 Source0:	https://archive.eclipse.org/eclipse/downloads/drops4/%{drop}/ecjsrc-%{version}.jar
-# Source0-md5:	29df435c80c010694012de442474ad88
+# Source0-md5:	8bc6b41b84b473e36273215128fe8ffe
 Source1:	ecj-build.xml
 URL:		https://www.eclipse.org/jdt/
 BuildRequires:	ant
